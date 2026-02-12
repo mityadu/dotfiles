@@ -9,7 +9,7 @@ install_homebrew() {
 
 	export HOMEBREW_CASK_OPTS="--appdir=/Applications/"
 	if hash brew &>/dev/null; then
-		warning "Homebrew already installed."
+		info "Skipping: already installed"
 	else
 		sudo --validate
 		NONINTERACTIVE-1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
