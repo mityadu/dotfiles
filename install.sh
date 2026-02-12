@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 . scripts/print_utils.sh
 . scripts/prerequisites.sh
 . scripts/osx_defaults.sh
@@ -11,6 +13,9 @@ install_homebrew
 
 info "Configuring OSX System defaults"
 apply_osx_system_defaults
+
+info "Installing apps..."
+# TODO
 
 chmod +x ./scripts/symlinks.sh
 if [[ "$overwrite_dotfiles" == "y" ]]; then

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SYMLINKS_CONFIG_FILE="$SCRIPT_DIR/../symlinks.conf"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SYMLINKS_CONFIG_FILE="$DOTFILES_DIR/symlinks.conf"
 
-. $SCRIPT_DIR/print_utils.sh
+. $DOTFILES_DIR/scripts/print_utils.sh
 
 # check symlinks.conf exists
 if [ ! -f "$SYMLINKS_CONFIG_FILE" ]; then
@@ -12,11 +12,14 @@ if [ ! -f "$SYMLINKS_CONFIG_FILE" ]; then
 fi
 
 link() {
-	info "Linking using symlinks.conf"
+	info "Linking symlinks.conf"
 
 	while IFS=: read -r source target || [ -n "$source" ]; do
-		source=$(eval echo "$source")
-		target=$(eval echo "$target")
+		# skip empty lines and comments
+		[[ -z "$source" || "$source" =~ ^[[:space:]]*# ]] && continue
+
+		source="${DOTFILES_DIR}/$source"
+		target="${HOME}/$target"
 
 		if [ ! -e "$source" ]; then
 			error "Source file '$source' does not exists. Skipping linking '$target'."
@@ -35,7 +38,7 @@ link() {
 				info "Created dir: '$target_dir'"
 			fi
 
-			ln -s "$source" "$target"
+			ln -sf "$source" "$target"
 			success "Linked: '$target'"
 		fi
 
@@ -53,7 +56,7 @@ delete_links() {
 			continue
 		fi
 
-		target=$(eval echo "$target")
+		target="${HOME}/$target"
 
 		if [ -L "$target" ] || { [ "$including_files" == true ] && [ -f "$target" ]; }; then
 			rm -rf "$target"
