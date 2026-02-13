@@ -1,9 +1,9 @@
 brew "ripgrep"
 brew "starship"
 brew "neovim"
+brew "fzf"
 
 # ZSH "plugins"
-brew "zsh-completions"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
