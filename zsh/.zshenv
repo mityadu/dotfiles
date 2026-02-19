@@ -13,7 +13,7 @@ export LC_CTYPE="en_US.UTF-8"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
 
