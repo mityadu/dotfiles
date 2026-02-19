@@ -1,5 +1,7 @@
 setopt HIST_IGNORE_ALL_DUPS
 
+autoload -Uz compinit && compinit
+
 source <(fzf --zsh)
 
 [ -f "$HOME/.config/zsh/git_aliases.zsh" ] && source "$HOME/.config/zsh/git_aliases.zsh"
