@@ -4,7 +4,6 @@
 
 export NVIM_COLOR_SCHEME="nord"
 export STARSHIP_COLOR_SCHEME="nord"
-export WEZTERM_COLOR_SCHEME="nord"
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"

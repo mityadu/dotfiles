@@ -14,6 +14,6 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-symbols-only-nerd-font"
 
 # APPS
-cask "wezterm"
+cask "ghostty"
 cask "obsidian"
 cask "karabiner-elements"
