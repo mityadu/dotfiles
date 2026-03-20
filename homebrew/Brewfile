@@ -2,6 +2,7 @@ brew "ripgrep"
 brew "starship"
 brew "neovim"
 brew "fzf"
+brew "lazygit"
 
 # ZSH "plugins"
 brew "zsh-autosuggestions"
