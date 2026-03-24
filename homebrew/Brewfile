@@ -3,6 +3,7 @@ brew "starship"
 brew "neovim"
 brew "fzf"
 brew "lazygit"
+brew "tmux"
 
 # ZSH "plugins"
 brew "zsh-autosuggestions"
