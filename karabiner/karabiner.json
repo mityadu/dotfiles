@@ -83,6 +83,26 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "Open Obsidian",
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_e",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {"optional": ["any"]}
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a Obsidian.app"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Open Safari",
                                 "conditions": [
                                     {
